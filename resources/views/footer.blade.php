@@ -1,7 +1,7 @@
 
 {{-- Footer --}}
 <!-- Footer Section -->
-<footer class="bg-cyan-500 text-white mt-16">
+<footer class="bg-blue-500 text-white mt-16">
     <div class="container mx-auto px-4 py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Logo -->
@@ -51,5 +51,9 @@
 {{-- End Footer --}}
 
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>

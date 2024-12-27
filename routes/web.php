@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/konten_edukasi', function () {
+    return view('konten_edukasi');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

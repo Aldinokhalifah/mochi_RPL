@@ -50,45 +50,45 @@
         Artikel dan Video Edukasi Untuk  <span class="text-blue-500">Ibu Muda</span>
     </h1>
     <div class="flex flex-col lg:flex-row gap-4 justify-center items-center">
-        <img src="https://via.placeholder.com/500x300" alt="" class="rounded-lg shadow-lg">
+        <img data-aos="fade-down-right" data-aos-duration="1500" src="https://via.placeholder.com/500x300" alt="" class="rounded-lg shadow-lg">
         <div class="flex flex-col gap-4">
-            <img src="https://via.placeholder.com/500x145" alt="" class="rounded-lg shadow-lg">
-            <img src="https://via.placeholder.com/500x145" alt="" class="rounded-lg shadow-lg">
+            <img data-aos="fade-down-left" data-aos-duration="1500" src="https://via.placeholder.com/500x145" alt="" class="rounded-lg shadow-lg">
+            <img data-aos="fade-down-left" data-aos-duration="1500" src="https://via.placeholder.com/500x145" alt="" class="rounded-lg shadow-lg">
         </div>
     </div>
 
     <div class="container mx-auto px-4 mt-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Card 1 -->
-            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300" data-aos-duration="1500" data-aos="flip-up">
                 <img src="https://via.placeholder.com/300x145" alt="" class="rounded-lg shadow-lg w-full object-cover">
                 <h3 class="font-bold text-lg mt-2">Nutrisi untuk kehamilan yang sehat</h3>
                 <span class="font-bold text-blue-900 cursor-pointer hover:underline hover:underline-offset-2 transition-all duration-500">Baca Selengkapnya...</span>
             </div>
     
             <!-- Card 2 -->
-            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300" data-aos-duration="1500" data-aos="flip-up">
                 <img src="https://via.placeholder.com/300x145" alt="" class="rounded-lg shadow-lg w-full object-cover">
                 <h3 class="font-bold text-lg mt-2">Memenuhi kebutuhan nutrisi harian anak</h3>
                 <span class="font-bold text-blue-900 cursor-pointer hover:underline hover:underline-offset-2 transition-all duration-500">Baca Selengkapnya...</span>
             </div>
     
             <!-- Card 3 -->
-            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300" data-aos-duration="1500" data-aos="flip-up">
                 <img src="https://via.placeholder.com/300x145" alt="" class="rounded-lg shadow-lg w-full object-cover">
                 <h3 class="font-bold text-lg mt-2">Olahraga membantu tumbuh kembang anak</h3>
                 <span class="font-bold text-blue-900 cursor-pointer hover:underline hover:underline-offset-2 transition-all duration-500">Baca Selengkapnya...</span>
             </div>
     
             <!-- Card 4 -->
-            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300" data-aos-duration="1500" data-aos="flip-up">
                 <img src="https://via.placeholder.com/300x145" alt="" class="rounded-lg shadow-lg w-full object-cover">
                 <h3 class="font-bold text-lg mt-2">Nutrisi yang sehat untuk anak</h3>
                 <span class="font-bold text-blue-900 cursor-pointer hover:underline hover:underline-offset-2 transition-all duration-500">Baca Selengkapnya...</span>
             </div>
     
             <!-- Card 5 -->
-            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300">
+            <div class="flex flex-col gap-3 p-4 hover:shadow-lg transition-all duration-300" data-aos-duration="1500" data-aos="flip-up">
                 <img src="https://via.placeholder.com/300x145" alt="" class="rounded-lg shadow-lg w-full object-cover">
                 <h3 class="font-bold text-lg mt-2">Mencegah anak stunting</h3>
                 <span class="font-bold text-blue-900 cursor-pointer hover:underline hover:underline-offset-2 transition-all duration-500">Baca Selengkapnya...</span>
