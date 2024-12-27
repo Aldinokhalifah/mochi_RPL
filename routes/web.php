@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DataAnakController;
+use App\Http\Controllers\DataDokterController;
 
 Route::get('/', function () {
     return view('index');
@@ -19,6 +21,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Route Dokter CRUD
+    Route::get('/data-dokter', [DataDokterController::class, 'index']);
+    Route::get('/data-dokter/{id}', [DataDokterController::class, 'show']);
+    Route::post('/data-dokter', [DataDokterController::class, 'create']);
+    Route::put('/data-dokter/{id}', [DataDokterController::class, 'update']);
+    Route::delete('/data-dokter/{id}', [DataDokterController::class, 'delete']);
+
+    // Route Data Anak CRUD
+    Route::get('/data-Anak', [DataAnakController::class, 'index']);
+    Route::get('/data-Anak/{id}', [DataAnakController::class, 'show']);
+    Route::post('/data-Anak', [DataAnakController::class, 'create']);
+    Route::put('/data-Anak/{id}', [DataAnakController::class, 'update']);
+    Route::delete('/data-Anak/{id}', [DataAnakController::class, 'delete']);
 });
 
 require __DIR__.'/auth.php';

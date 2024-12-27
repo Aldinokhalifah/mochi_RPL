@@ -16,4 +16,9 @@ class DataAnak extends Model
         'keluhan',
         'pertanyaan',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
