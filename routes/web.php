@@ -10,11 +10,11 @@ Route::get('/', function () {
 });
 
 Route::get('/konten_edukasi', function () {
-    return view('konten_edukasi');
+    return view('konten_edukasi')->name('konten_edukasi');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('profile.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/data-Anak', [DataAnakController::class, 'create']);
     Route::put('/data-Anak/{id}', [DataAnakController::class, 'update']);
     Route::delete('/data-Anak/{id}', [DataAnakController::class, 'delete']);
+
+    Route::get('/dashboard/activities', function () {
+        return view('profile.tabel_anak');
+    })->name('activities');
 });
 
 require __DIR__.'/auth.php';
