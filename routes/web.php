@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataAnakController;
 use App\Http\Controllers\DataDokterController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', function () {
     return view('index');
@@ -39,6 +40,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/activities', function () {
         return view('profile.tabel_anak');
     })->name('activities');
+
+    Route::get('/dashboard/data_anak', function () {
+        return view('profile.form_data_anak');
+    })->name('data_anak');
+
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])
+    ->name('logout');
 });
 
 require __DIR__.'/auth.php';
