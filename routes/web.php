@@ -10,7 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('/konten_edukasi', function () {
-    return view('konten_edukasi')->name('konten_edukasi');
+    return view('konten_edukasi');
 });
 
 Route::get('/dashboard', function () {
