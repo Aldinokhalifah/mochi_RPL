@@ -45,6 +45,10 @@ Route::middleware('auth')->group(function () {
         return view('profile.form_data_anak');
     })->name('data_anak');
 
+    Route::get('/dashboard/profile', function () {
+        return view('profile.profile');
+    })->name('profile');
+
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
     ->name('logout');
