@@ -357,7 +357,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
+                                            <a href="{{ route('chat.index1') }}" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
                                         </td>
                                         </tr>
                                         <tr>
@@ -373,7 +373,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
+                                            <a href="{{ route('chat.index2') }}" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
                                         </td>
                                         </tr>
                                         <tr>
@@ -389,7 +389,7 @@
                                             </div>
                                         </td>
                                         <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent">
-                                            <a href="javascript:;" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
+                                            <a href="{{ route('chat.index3') }}" class="text-xs font-semibold leading-tight text-slate-400"> Read </a>
                                         </td>
                                         </tr>
                                     </tbody>

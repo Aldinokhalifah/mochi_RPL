@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataAnakController;
@@ -56,6 +59,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
     ->name('logout');
+
+    // Halaman Konsultasi
+    Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
+    Route::get('/doctors/konsultasi', [AppointmentController::class, 'create'])->name('doctors.konsultasi');
+    Route::post('/doctors/konsultasi/submit', [AppointmentController::class, 'submitKonsultasi'])->name('konsultasi.submit');
+    Route::get('/chat/{doctor_id}', [MessageController::class, 'index']);
+    Route::get('/chat1', [MessageController::class, 'index1'])->name('chat.index1');
+    Route::get('/chat2', [MessageController::class, 'index2'])->name('chat.index2');
+    Route::get('/chat3', [MessageController::class, 'index3'])->name('chat.index3');
 });
 
 require __DIR__.'/auth.php';
