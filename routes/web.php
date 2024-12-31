@@ -14,6 +14,10 @@ Route::get('/konten_edukasi', function () {
     return view('konten_edukasi');
 });
 
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
 Route::get('/dashboard', function () {
     return view('profile.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
