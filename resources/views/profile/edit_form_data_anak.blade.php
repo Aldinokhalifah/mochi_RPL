@@ -214,53 +214,53 @@
     <div class="w-full px-6 py-6 mx-auto">
         <!-- table 1 -->
 
-        <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6 space-y-4">
-            <!-- Header -->
-            <div class="flex justify-between items-center border-b pb-4">
-            <h1 class="text-lg font-semibold">Data Anak</h1>
-            </div>
-        
-            <!-- Form -->
-            <form class="space-y-4" method="POST" action="{{ route('data-anak.create') }}">
-            @csrf
-            <div class="space-y-2">
-                <input type="text" name="nama_anak" class="flex h-10 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Nama Anak" required />
-            </div>
-        
-            <!-- Dropdown untuk Jenis Kelamin -->
-            <div class="space-y-2">
-                <select name="jenis_kelamin" class="flex h-10 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" required>
-                <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                <option value="Laki-laki">Laki-laki</option>
-                <option value="Perempuan">Perempuan</option>
-                </select>
-            </div>
-        
-            <div class="space-y-2">
-                <input type="text" name="usia" class="flex h-10 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Usia" required />
-            </div>
-        
-            <div class="space-y-2">
-                <input type="text" name="berat" class="flex h-10 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Berat Saat Ini" required />
-            </div>
-        
-            <div class="space-y-2">
-                <input type="text" name="tinggi" class="flex h-10 w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Tinggi Saat Ini" required />
-            </div>
-        
-            <div class="space-y-2">
-                <textarea name="keluhan" class="flex min-h-[80px] w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Keluhan" required></textarea>
-            </div>
-        
-            <div class="space-y-2">
-                <textarea name="pertanyaan" class="flex min-h-[80px] w-full rounded-md border border-gray-300 bg-gray-50 px-3 py-2 text-sm" placeholder="Pertanyaan Untuk Dokter" required></textarea>
-            </div>
-        
-            <div class="space-y-2">
-                <button type="submit" class="mt-4 w-full inline-flex items-center justify-center rounded-md text-sm font-bold border-2 border-black text-black  h-10 px-4 py-2">
-                Simpan
-                </button>
-            </div>
+        <div class="container mx-auto p-6">
+            <h2 class="text-2xl font-bold mb-6">Edit Data Anak</h2>
+            <form method="POST" action="{{ route('data-anak.update', $dataAnak->id) }}">
+                @csrf
+                @method('PUT')
+    
+                <div class="mb-4">
+                    <label for="nama_anak" class="block text-gray-700">Nama Anak:</label>
+                    <input type="text" id="nama_anak" name="nama_anak" value="{{ old('nama_anak', $dataAnak->nama_anak) }}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="jenis_kelamin" class="block text-gray-700">Jenis Kelamin:</label>
+                    <select id="jenis_kelamin" name="jenis_kelamin" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                        <option value="Laki-laki" {{ old('jenis_kelamin', $dataAnak->jenis_kelamin) == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                        <option value="Perempuan" {{ old('jenis_kelamin', $dataAnak->jenis_kelamin) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    </select>
+                </div>
+    
+                <div class="mb-4">
+                    <label for="usia" class="block text-gray-700">Usia:</label>
+                    <input type="number" id="usia" name="usia" value="{{ old('usia', $dataAnak->usia) }}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="berat" class="block text-gray-700">Berat:</label>
+                    <input type="number" step="0.1" id="berat" name="berat" value="{{ old('berat', $dataAnak->berat) }}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="tinggi" class="block text-gray-700">Tinggi:</label>
+                    <input type="number" step="0.1" id="tinggi" name="tinggi" value="{{ old('tinggi', $dataAnak->tinggi) }}" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+    
+                <div class="mb-4">
+                    <label for="keluhan" class="block text-gray-700">Keluhan:</label>
+                    <textarea id="keluhan" name="keluhan" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">{{ old('keluhan', $dataAnak->keluhan) }}</textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label for="pertanyaan" class="block text-gray-700">Pertanyaan:</label>
+                    <textarea id="pertanyaan" name="pertanyaan" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">{{ old('pertanyaan', $dataAnak->pertanyaan) }}</textarea>
+                </div>
+    
+                <div class="mb-4">
+                    <button type="submit" class="mt-4 w-full inline-flex items-center justify-center rounded-md text-sm font-bold border-2 border-black text-black  h-10 px-4 py-2">Update</button>
+                </div>
             </form>
         </div>
 

@@ -50,7 +50,22 @@ class DataAnakController extends Controller
         $dataAnak->user_id = $user->id; // Hubungkan dengan user yang login
         $dataAnak->save();
 
-        return response()->json(['message' => 'Data anak berhasil disimpan.', 'data' => $dataAnak], 201);
+        return redirect()->route('dashboard')->with('message', 'Data anak berhasil disimpan.');
+    }
+
+    /**
+     * Menampilkan form edit data anak.
+     */
+    public function edit($id)
+    {
+        $user = Auth::user();
+        $dataAnak = DataAnak::where('id', $id)->where('user_id', $user->id)->first();
+
+        if (!$dataAnak) {
+            return redirect()->route('dashboard')->with('error', 'Data anak tidak ditemukan atau Anda tidak berhak mengaksesnya.');
+        }
+
+        return view('profile.edit_form_data_anak', compact('dataAnak'));
     }
 
     /**
@@ -63,7 +78,7 @@ class DataAnakController extends Controller
         // Pastikan data anak milik user yang login
         $dataAnak = DataAnak::where('id', $id)->where('user_id', $user->id)->first();
         if (!$dataAnak) {
-            return response()->json(['message' => 'Data anak tidak ditemukan atau Anda tidak berhak mengaksesnya.'], 404);
+            return redirect()->route('dashboard')->with('error', 'Data anak tidak ditemukan atau Anda tidak berhak mengaksesnya.');
         }
 
         // Validasi input
@@ -74,13 +89,12 @@ class DataAnakController extends Controller
             'berat' => 'nullable|numeric|min:0',
             'tinggi' => 'nullable|numeric|min:0',
             'keluhan' => 'nullable|string',
-            'pertanyaan' => 'nullable|string',
         ]);
 
         // Update data anak
         $dataAnak->update($request->all());
 
-        return response()->json(['message' => 'Data anak berhasil diperbarui.', 'data' => $dataAnak], 200);
+        return redirect()->route('dashboard')->with('success', 'Data anak berhasil diperbarui.');
     }
 
     /**
@@ -90,15 +104,17 @@ class DataAnakController extends Controller
     {
         $user = Auth::user();
 
-        // Pastikan data anak milik user yang login
+        // Cari data anak berdasarkan ID dan user yang sedang login
         $dataAnak = DataAnak::where('id', $id)->where('user_id', $user->id)->first();
+
         if (!$dataAnak) {
-            return response()->json(['message' => 'Data anak tidak ditemukan atau Anda tidak berhak mengaksesnya.'], 404);
+            return redirect()->route('dashboard')->with('error', 'Data anak tidak ditemukan atau Anda tidak berhak menghapusnya.');
         }
 
         // Hapus data anak
         $dataAnak->delete();
 
-        return response()->json(['message' => 'Data anak berhasil dihapus.'], 200);
+        return redirect()->route('dashboard')->with('success', 'Data anak berhasil dihapus.');
     }
+
 }

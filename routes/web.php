@@ -31,18 +31,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Route Dokter CRUD
-    Route::get('/data-dokter', [DataDokterController::class, 'index']);
-    Route::get('/data-dokter/{id}', [DataDokterController::class, 'show']);
-    Route::post('/data-dokter', [DataDokterController::class, 'create']);
-    Route::put('/data-dokter/{id}', [DataDokterController::class, 'update']);
-    Route::delete('/data-dokter/{id}', [DataDokterController::class, 'delete']);
+    Route::get('/data-dokter', [DataDokterController::class, 'index'])->name('data-dokter.index');
+    Route::get('/data-dokter/{id}', [DataDokterController::class, 'show'])->name('data-dokter.show');
+    Route::post('/data-dokter', [DataDokterController::class, 'create'])->name('data-dokter.create');
+    Route::put('/data-dokter/{id}', [DataDokterController::class, 'update'])->name('data-dokter.update');
+    Route::delete('/data-dokter/{id}', [DataDokterController::class, 'delete'])->name('data-dokter.delete');
 
     // Route Data Anak CRUD
-    Route::get('/data-Anak', [DataAnakController::class, 'index']);
-    Route::get('/data-Anak/{id}', [DataAnakController::class, 'show']);
-    Route::post('/data-Anak', [DataAnakController::class, 'create']);
-    Route::put('/data-Anak/{id}', [DataAnakController::class, 'update']);
-    Route::delete('/data-Anak/{id}', [DataAnakController::class, 'delete']);
+    Route::get('/data-anak', [DataAnakController::class, 'index'])->name('data-anak.index');
+    Route::get('/data-anak/{id}', [DataAnakController::class, 'edit'])->name('data-anak.show');
+    Route::post('/data-anak', [DataAnakController::class, 'create'])->name('data-anak.create');
+    Route::put('/data-anak/{id}', [DataAnakController::class, 'update'])->name('data-anak.update');
+    Route::delete('/data-anak/{id}', [DataAnakController::class, 'delete'])->name('data-anak.delete');
 
     Route::get('/dashboard/activities', function () {
         return view('profile.tabel_anak');

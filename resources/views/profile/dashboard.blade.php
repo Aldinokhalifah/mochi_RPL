@@ -406,62 +406,102 @@
 
             <div class="flex flex-wrap my-6 -mx-3">
             <!-- card 1 -->
-
+            @php
+                $dataAnakId = Auth::user()->dataAnak()->value('id');
+            @endphp
             <div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-full  mt-0 mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 lg:flex-none">
                 <!-- Header with delete icon -->
                 <div class="flex justify-between items-start mb-6 ">
                     <h2 class="text-lg font-medium text-gray-900">Data Anak</h2>
-                    <button class="text-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                    </button>
+                    @if($dataAnakId)
+                        <form action="{{ route('data-anak.delete', $dataAnakId) }}" method="POST" class="text-gray-400">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </form>
+                    @else
+                        <button type=""></button>
+                    @endif                  
                 </div>
                 
                     <!-- Data Fields -->
                     <div class="space-y-4">
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Nama Anak:</p>
-                        <p class="text-gray-500">Vladilena Milize</p>
+                        @if(empty(Auth::user()->dataAnak()->value('nama_anak')))
+                            <p class="text-gray-500">Anda belum memiliki data nama anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('nama_anak') }}</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Jenis Kelamin:</p>
-                        <p class="text-gray-500">Perempuan</p>
+                        @if(empty(Auth::user()->dataAnak()->value('jenis_kelamin')))
+                            <p class="text-gray-500">Anda belum memiliki data jenis kelamin anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('jenis_kelamin') }}</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Usia:</p>
-                        <p class="text-gray-500">7 Bulan</p>
+                        @if(empty(Auth::user()->dataAnak()->value('usia')))
+                            <p class="text-gray-500">Anda belum memiliki data usia anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('usia') }} Tahun</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Berat Saat Ini:</p>
-                        <p class="text-gray-500">7,6 Kg</p>
+                        @if(empty(Auth::user()->dataAnak()->value('berat')))
+                            <p class="text-gray-500">Anda belum memiliki data berat anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('berat') }} KG</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Tinggi Saat Ini:</p>
-                        <p class="text-gray-500">68 Cm</p>
+                        @if(empty(Auth::user()->dataAnak()->value('tinggi')))
+                            <p class="text-gray-500">Anda belum memiliki data tinggi anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('tinggi') }} CM</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Keluhan:</p>
-                        <p class="text-gray-500">Demam</p>
+                        @if(empty(Auth::user()->dataAnak()->value('keluhan')))
+                            <p class="text-gray-500">Anda belum memiliki data keluhan anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('keluhan') }}</p>
+                        @endif
                     </div>
                 
                     <div>
                         <p class="text-gray-900 font-bold mb-1">Pertanyaan:</p>
-                        <p class="text-gray-500">Bagaimana cara mengatasi demam anak?</p>
+                        @if(empty(Auth::user()->dataAnak()->value('pertanyaan')))
+                            <p class="text-gray-500">Anda belum memiliki data pertanyaan anak</p>
+                        @else
+                            <p class="text-gray-500">{{ Auth::user()->dataAnak()->value('pertanyaan') }}</p>
+                        @endif
                     </div>
-                    </div>
+                </div>
                 
-                    <!-- Edit Button -->
-                    <div class="mt-6">
-                        <button class="w-full border-2 border-black text-black font-bold py-2 px-4 rounded-lg transition-colors">
-                            Edit
-                        </button>
-                    </div>
+                <!-- Edit Button -->
+                <div class="mt-6">
+                @if ($dataAnakId)
+                    <a href="{{ route('data-anak.update', $dataAnakId) }}" class="w-full border-2 border-black text-black font-bold py-2 px-4 rounded-lg transition-colors">Edit Data Anak</a> 
+                @else
+                    <a href="{{ route('data_anak') }}" class="w-full border-2 border-black text-black font-bold py-2 px-4 rounded-lg transition-colors">Tambah Data Anak</a>
+                @endif
+                </div>
             </div>
             
 

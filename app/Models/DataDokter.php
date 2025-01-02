@@ -16,4 +16,9 @@ class DataDokter extends Model
         'alamat',
         'setuju_pengolahan_data',
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

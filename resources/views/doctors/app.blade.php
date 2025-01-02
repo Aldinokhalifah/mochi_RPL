@@ -24,7 +24,7 @@
 <body>
     <!-- Header -->
     <header>
-        @include('header')
+        @include('doctors.header')
     </header>
 
     <!-- Main Content -->
