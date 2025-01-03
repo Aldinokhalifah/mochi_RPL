@@ -56,6 +56,10 @@ Route::middleware('auth')->group(function () {
         return view('profile.profile');
     })->name('profile');
 
+    Route::get('/profile/settings', function () {
+        return view('profile.settings');
+    })->name('settings');
+
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
     ->name('logout');
